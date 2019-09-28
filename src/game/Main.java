@@ -30,20 +30,20 @@ public class Main {
         dealer d = new dealer();
         d.fapai(player1,player2,player3,player4,arr);
 
-        JudgePokerType jpt1 = new JudgePokerType();
+        Operation op1 = new Operation();
         player1.lookPoker(hm);
-        jpt1.countPoker(player1.getHandPoker());
+        op1.countPoker(player1.getHandPoker());
 
-        JudgePokerType jpt2 = new JudgePokerType();
+        Operation op2 = new Operation();
         player2.lookPoker(hm);
-        jpt2.countPoker(player2.getHandPoker());
+        op2.countPoker(player2.getHandPoker());
 
-        JudgePokerType jpt3 = new JudgePokerType();
+        Operation op3 = new Operation();
         player3.lookPoker(hm);
-        jpt3.countPoker(player3.getHandPoker());
+        op3.countPoker(player3.getHandPoker());
 
-        JudgePokerType jpt4 = new JudgePokerType();
+        Operation op4 = new Operation();
         player4.lookPoker(hm);
-        jpt4.countPoker(player4.getHandPoker());
+        op4.countPoker(player4.getHandPoker());
     }
 }
