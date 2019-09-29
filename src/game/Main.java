@@ -9,7 +9,7 @@ public class Main {
         ArrayList<Integer> arr = new ArrayList<Integer>();
 
         String[] colors = {"♠", "♥", "♣", "♦"};
-        String[] numbers = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
+        String[] numbers = {"2", "3", "4", "5", "6", "7", "8", "9", "￥", "J", "Q", "K", "A"};
 
         int index = 0;
         for (String number : numbers) {
@@ -33,17 +33,29 @@ public class Main {
         Operation op1 = new Operation();
         player1.lookPoker(hm);
         op1.countPoker(player1.getHandPoker());
+        op1.judgeCardType(5);
+        op1.judgeCardType(5);
+        op1.judgeCardType(3);
 
         Operation op2 = new Operation();
         player2.lookPoker(hm);
         op2.countPoker(player2.getHandPoker());
+        op2.judgeCardType(5);
+        op2.judgeCardType(5);
+        op2.judgeCardType(3);
 
         Operation op3 = new Operation();
         player3.lookPoker(hm);
         op3.countPoker(player3.getHandPoker());
+        op3.judgeCardType(5);
+        op3.judgeCardType(5);
+        op3.judgeCardType(3);
 
         Operation op4 = new Operation();
         player4.lookPoker(hm);
         op4.countPoker(player4.getHandPoker());
+        op4.judgeCardType(5);
+        op4.judgeCardType(5);
+        op4.judgeCardType(3);
     }
 }

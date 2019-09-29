@@ -55,19 +55,22 @@ public class Operation {
         {
             //三条
             if (a3.length() != 0){
-                System.out.print(a3.charAt(0));
-                System.out.print(a3.charAt(0));
-                System.out.println(a3.charAt(0));
+                out(a3.charAt(0));
+                out(a3.charAt(0));
+                out(a3.charAt(0));
+                System.out.println();
             }
             else if(a2.length() != 0){
-                System.out.print(a2.charAt(0));
-                System.out.print(a2.charAt(0));
-                System.out.println(a1.charAt(0));
+                out(a2.charAt(0));
+                out(a2.charAt(0));
+                out(a1.charAt(0));
+                System.out.println();
             }
             else{
-                System.out.print(a1.charAt(0));
-                System.out.print(a1.charAt(1));
-                System.out.println(a1.charAt(2));
+                out(a1.charAt(0));
+                out(a1.charAt(1));
+                out(a1.charAt(2));
+                System.out.println();
             }
         }
         if(size == 5)
@@ -75,22 +78,33 @@ public class Operation {
             //判断同花顺
             //判断炸弹
             if(a4.length() != 0 && a1.length() != 0) {
-                System.out.print(a4.charAt(0));
-                System.out.print(a4.charAt(0));
-                System.out.print(a4.charAt(0));
-                System.out.print(a4.charAt(0));
-                System.out.println(a1.charAt(0));
-                a4.deleteCharAt(0);
-                a1.deleteCharAt(0);
+                out(a4.charAt(0)==1?10:a4.charAt(0));
+                out(a4.charAt(0)==1?10:a4.charAt(0));
+                out(a4.charAt(0)==1?10:a4.charAt(0));
+                out(a4.charAt(0)==1?10:a4.charAt(0));
+                out(a1.charAt(0)==1?10:a1.charAt(0));
+                System.out.println();
+                if(a4.charAt(0)==1){
+                    a4.deleteCharAt(0);
+                    a4.deleteCharAt(0);
+                }
+                else a4.deleteCharAt(0);
+                if(a1.charAt(0)==1)
+                {
+                    a1.deleteCharAt(0);
+                    a1.deleteCharAt(0);
+                }
+                else a1.deleteCharAt(0);
             }
             //判断葫芦
             else if(a3.length() != 0 && a2.length() != 0)
             {
-                System.out.print(a3.charAt(0));
-                System.out.print(a3.charAt(0));
-                System.out.print(a3.charAt(0));
-                System.out.print(a2.charAt(0));
-                System.out.println(a2.charAt(0));
+                out(a3.charAt(0));
+                out(a3.charAt(0));
+                out(a3.charAt(0));
+                out(a2.charAt(0));
+                out(a2.charAt(0));
+                System.out.println();
                 a3.deleteCharAt(0);
                 a2.deleteCharAt(0);
             }
@@ -99,35 +113,70 @@ public class Operation {
             else if(a1.length() >= 5 && judge(a1.toString())!=0)
             {
                 if (judge(a1.toString())==1) System.out.println("23456");
-                else if(judge(a1.toString())==3) System.out.println("34567");
-                else if(judge(a1.toString())==4) System.out.println("45678");
-                else if(judge(a1.toString())==5) System.out.println("56789");
-                else if(judge(a1.toString())==6) System.out.println("678910");
-                else if(judge(a1.toString())==7) System.out.println("78910J");
-                else if(judge(a1.toString())==8) System.out.println("8910JQ");
-                else if(judge(a1.toString())==9) System.out.println("910JQK");
-                else if(judge(a1.toString())==2) System.out.println("10JQKA");
+                else if(judge(a1.toString())==2) System.out.println("34567");
+                else if(judge(a1.toString())==3) System.out.println("45678");
+                else if(judge(a1.toString())==4) System.out.println("56789");
+                else if(judge(a1.toString())==5) System.out.println("678910");
+                else if(judge(a1.toString())==6) System.out.println("78910J");
+                else if(judge(a1.toString())==7) System.out.println("8910JQ");
+                else if(judge(a1.toString())==8) System.out.println("910JQK");
+                else if(judge(a1.toString())==9) System.out.println("10JQKA");
+                a1.deleteCharAt(0);
+                a1.deleteCharAt(0);
+                a1.deleteCharAt(0);
+                a1.deleteCharAt(0);
+                a1.deleteCharAt(0);
             }
             //判断三条
             else if(a3.length() != 0 && a1.length() >= 2 ){
-                System.out.print(a3.charAt(0));
-                System.out.print(a3.charAt(0));
-                System.out.print(a3.charAt(0));
-                System.out.print(a1.charAt(0));
-                System.out.print(a1.charAt(1));
+                out(a3.charAt(0));
+                out(a3.charAt(0));
+                out(a3.charAt(0));
+                out(a1.charAt(0));
+                out(a1.charAt(1));
+                System.out.println();
                 a3.deleteCharAt(0);
                 a1.deleteCharAt(0);
                 a1.deleteCharAt(0);
             }
             //判断二对
             else if(a2.length() >= 2 && a1.length() != 0 ){
-                System.out.print(a2.charAt(0));
-                System.out.print(a2.charAt(0));
-                System.out.print(a2.charAt(1));
-                System.out.print(a2.charAt(1));
-                System.out.print(a1.charAt(0));
+                out(a2.charAt(0));
+                out(a2.charAt(0));
+                out(a2.charAt(1));
+                out(a2.charAt(1));
+                out(a1.charAt(0));
+                System.out.println();
                 a2.deleteCharAt(0);
                 a2.deleteCharAt(0);
+                a1.deleteCharAt(0);
+            }
+            //判断一对
+            else if(a2.length()!=0 && a1.length()>=3){
+                out(a2.charAt(0));
+                out(a2.charAt(0));
+                out(a1.charAt(0));
+                out(a1.charAt(1));
+                out(a1.charAt(2));
+                System.out.println();
+                a2.deleteCharAt(0);
+                a1.deleteCharAt(0);
+                a1.deleteCharAt(0);
+                a1.deleteCharAt(0);
+            }
+            //判断五张散牌
+            else if(a1.length() >=5)
+            {
+                out(a1.charAt(0));
+                out(a1.charAt(1));
+                out(a1.charAt(2));
+                out(a1.charAt(3));
+                out(a1.charAt(4));
+                System.out.println();
+                a1.deleteCharAt(0);
+                a1.deleteCharAt(0);
+                a1.deleteCharAt(0);
+                a1.deleteCharAt(0);
                 a1.deleteCharAt(0);
             }
         }
@@ -135,15 +184,20 @@ public class Operation {
     //判断顺子
     private int judge(String str)
     {
-        if(str == "23456") return 1;
-        else if(str == "34567") return 2;
-        else if(str == "45678") return 3;
-        else if(str == "56789") return 4;
-        else if(str == "678910") return 5;
-        else if(str == "78910J") return 6;
-        else if(str == "8910JQ") return 7;
-        else if(str == "910JQk") return 8;
-        else if(str == "10JQKA") return 9;
+        if(str.contains("23456")) return 1;
+        else if(str.contains("34567")) return 2;
+        else if(str.contains("45678")) return 3;
+        else if(str.contains("56789")) return 4;
+        else if(str.contains("678910")) return 5;
+        else if(str.contains("78910J")) return 6;
+        else if(str.contains("8910JQ")) return 7;
+        else if(str.contains("910JQK")) return 8;
+        else if(str.contains("10JQKA")) return 9;
         else return 0;
+    }
+    private void out(char c)
+    {
+        if(c=='￥') System.out.print("10");
+        else System.out.print(c);
     }
 }
