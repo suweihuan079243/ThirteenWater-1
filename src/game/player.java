@@ -1,5 +1,7 @@
 package game;
 
+import java.security.AlgorithmConstraints;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -38,6 +40,17 @@ public class player {
         for (Integer key : handPokerNum) {
             handPoker.add(hm.get(key));
         }
-        System.out.println(handPoker);
+        //不能直接temp = handpoker ,对temp进行操作时也会改变handpoker,handpoker的引用给了temp;
+        ArrayList<String> temp = new ArrayList<String>();
+        for (String s : handPoker){
+            temp.add(s);
+        }
+        for (int i = 0 ; i< temp.size();i++){
+            if (temp.get(i).equals("♥￥")) temp.set(i,"♥10");
+            else if (temp.get(i).equals("♠￥")) temp.set(i,"♠10");
+            else if (temp.get(i).equals("♦￥")) temp.set(i,"♦10");
+            else if (temp.get(i).equals("♣￥")) temp.set(i,"♣10");
+        }
+        System.out.println(temp);
     }
 }

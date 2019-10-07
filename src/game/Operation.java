@@ -17,10 +17,10 @@ public class Operation {
     private ArrayList<String> middle = new ArrayList<>();//中墩
     private ArrayList<String> behand = new ArrayList<>();//后墩
 
-
+    //把花色去掉
     public void countPoker(ArrayList<String> handPoker)
     {
-        //把花色去掉
+
         for(String str : handPoker){
             str = str.substring(1);
             numList.add(str);
@@ -42,10 +42,10 @@ public class Operation {
             }
             if (index >= 13) break;
         }
-        System.out.print(a1+",");
-        System.out.print(a2+",");
-        System.out.print(a3+",");
-        System.out.println(a4);
+//        System.out.print(a1+",");
+//        System.out.print(a2+",");
+//        System.out.print(a3+",");
+//        System.out.println(a4);
     }
 
     public void judgeCardType(int size)
