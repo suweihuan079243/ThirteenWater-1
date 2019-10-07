@@ -33,29 +33,33 @@ public class Main {
         Operation op1 = new Operation();
         player1.lookPoker(hm);
         op1.countPoker(player1.getHandPoker());
-        op1.judgeCardType(5);
-        op1.judgeCardType(5);
-        op1.judgeCardType(3);
+        op1.judgeCardType(5,0);
+        op1.judgeCardType(5,1);
+        op1.judgeCardType(3,2);
+        op1.play();
 
         Operation op2 = new Operation();
         player2.lookPoker(hm);
         op2.countPoker(player2.getHandPoker());
-        op2.judgeCardType(5);
-        op2.judgeCardType(5);
-        op2.judgeCardType(3);
+        op2.judgeCardType(5,0);
+        op2.judgeCardType(5,1);
+        op2.judgeCardType(3,2);
+        op2.play();
 
         Operation op3 = new Operation();
         player3.lookPoker(hm);
         op3.countPoker(player3.getHandPoker());
-        op3.judgeCardType(5);
-        op3.judgeCardType(5);
-        op3.judgeCardType(3);
+        op3.judgeCardType(5,0);
+        op3.judgeCardType(5,1);
+        op3.judgeCardType(3,2);
+        op3.play();
 
         Operation op4 = new Operation();
         player4.lookPoker(hm);
         op4.countPoker(player4.getHandPoker());
-        op4.judgeCardType(5);
-        op4.judgeCardType(5);
-        op4.judgeCardType(3);
+        op4.judgeCardType(5,0);
+        op4.judgeCardType(5,1);
+        op4.judgeCardType(3,2);
+        op4.play();
     }
 }

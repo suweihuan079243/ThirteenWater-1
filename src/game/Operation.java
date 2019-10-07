@@ -1,7 +1,6 @@
 package game;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Operation {
     /**
@@ -16,6 +15,8 @@ public class Operation {
     private ArrayList<String> front = new ArrayList<>();//前墩
     private ArrayList<String> middle = new ArrayList<>();//中墩
     private ArrayList<String> behand = new ArrayList<>();//后墩
+    private int flag1 = 0; //后墩牌型
+    private int flag2 = 0; //中墩牌型
 
     //把花色去掉
     public void countPoker(ArrayList<String> handPoker)
@@ -42,35 +43,33 @@ public class Operation {
             }
             if (index >= 13) break;
         }
-//        System.out.print(a1+",");
-//        System.out.print(a2+",");
-//        System.out.print(a3+",");
-//        System.out.println(a4);
+        System.out.print(a1+",");
+        System.out.print(a2+",");
+        System.out.print(a3+",");
+        System.out.println(a4);
     }
 
-    public void judgeCardType(int size)
+    //判断普通牌型
+    public void judgeCardType(int size,int flag)
     {
         //前墩牌型判断
         if(size == 3)
         {
             //三条
             if (a3.length() != 0){
-                out(a3.charAt(0));
-                out(a3.charAt(0));
-                out(a3.charAt(0));
-                System.out.println();
+                out(a3.charAt(0),flag);
+                out(a3.charAt(0),flag);
+                out(a3.charAt(0),flag);
             }
             else if(a2.length() != 0){
-                out(a2.charAt(0));
-                out(a2.charAt(0));
-                out(a1.charAt(0));
-                System.out.println();
+                out(a2.charAt(0),flag);
+                out(a2.charAt(0),flag);
+                out(a1.charAt(0),flag);
             }
             else{
-                out(a1.charAt(0));
-                out(a1.charAt(1));
-                out(a1.charAt(2));
-                System.out.println();
+                out(a1.charAt(0),flag);
+                out(a1.charAt(1),flag);
+                out(a1.charAt(2),flag);
             }
         }
         if(size == 5)
@@ -78,35 +77,28 @@ public class Operation {
             //判断同花顺
             //判断炸弹
             if(a4.length() != 0 && a1.length() != 0) {
-                out(a4.charAt(0)==1?10:a4.charAt(0));
-                out(a4.charAt(0)==1?10:a4.charAt(0));
-                out(a4.charAt(0)==1?10:a4.charAt(0));
-                out(a4.charAt(0)==1?10:a4.charAt(0));
-                out(a1.charAt(0)==1?10:a1.charAt(0));
-                System.out.println();
-                if(a4.charAt(0)==1){
-                    a4.deleteCharAt(0);
-                    a4.deleteCharAt(0);
-                }
-                else a4.deleteCharAt(0);
-                if(a1.charAt(0)==1)
-                {
-                    a1.deleteCharAt(0);
-                    a1.deleteCharAt(0);
-                }
-                else a1.deleteCharAt(0);
+                out(a4.charAt(0)==1?10:a4.charAt(0),flag);
+                out(a4.charAt(0)==1?10:a4.charAt(0),flag);
+                out(a4.charAt(0)==1?10:a4.charAt(0),flag);
+                out(a4.charAt(0)==1?10:a4.charAt(0),flag);
+                out(a1.charAt(0)==1?10:a1.charAt(0),flag);
+                a4.deleteCharAt(0);
+                a1.deleteCharAt(0);
+                if (flag == 0) flag1=1;
+                else if(flag ==1) flag2=1;
             }
             //判断葫芦
             else if(a3.length() != 0 && a2.length() != 0)
             {
-                out(a3.charAt(0));
-                out(a3.charAt(0));
-                out(a3.charAt(0));
-                out(a2.charAt(0));
-                out(a2.charAt(0));
-                System.out.println();
+                out(a3.charAt(0),flag);
+                out(a3.charAt(0),flag);
+                out(a3.charAt(0),flag);
+                out(a2.charAt(0),flag);
+                out(a2.charAt(0),flag);
                 a3.deleteCharAt(0);
                 a2.deleteCharAt(0);
+                if (flag == 0) flag1=2;
+                else if(flag ==1) flag2=2;
             }
             //判断同花
             //判断顺子(问题：只能从单张牌堆里面选顺子)
@@ -129,55 +121,59 @@ public class Operation {
             }
             //判断三条
             else if(a3.length() != 0 && a1.length() >= 2 ){
-                out(a3.charAt(0));
-                out(a3.charAt(0));
-                out(a3.charAt(0));
-                out(a1.charAt(0));
-                out(a1.charAt(1));
-                System.out.println();
+                out(a3.charAt(0),flag);
+                out(a3.charAt(0),flag);
+                out(a3.charAt(0),flag);
+                out(a1.charAt(0),flag);
+                out(a1.charAt(1),flag);
                 a3.deleteCharAt(0);
                 a1.deleteCharAt(0);
                 a1.deleteCharAt(0);
+                if (flag == 0) flag1=3;
+                else if(flag ==1) flag2=3;
             }
             //判断二对
             else if(a2.length() >= 2 && a1.length() != 0 ){
-                out(a2.charAt(0));
-                out(a2.charAt(0));
-                out(a2.charAt(1));
-                out(a2.charAt(1));
-                out(a1.charAt(0));
-                System.out.println();
+                out(a2.charAt(0),flag);
+                out(a2.charAt(0),flag);
+                out(a2.charAt(1),flag);
+                out(a2.charAt(1),flag);
+                out(a1.charAt(0),flag);
                 a2.deleteCharAt(0);
                 a2.deleteCharAt(0);
                 a1.deleteCharAt(0);
+                if (flag == 0) flag1=4;
+                else if(flag ==1) flag2=4;
             }
             //判断一对
             else if(a2.length()!=0 && a1.length()>=3){
-                out(a2.charAt(0));
-                out(a2.charAt(0));
-                out(a1.charAt(0));
-                out(a1.charAt(1));
-                out(a1.charAt(2));
-                System.out.println();
+                out(a2.charAt(0),flag);
+                out(a2.charAt(0),flag);
+                out(a1.charAt(0),flag);
+                out(a1.charAt(1),flag);
+                out(a1.charAt(2),flag);
                 a2.deleteCharAt(0);
                 a1.deleteCharAt(0);
                 a1.deleteCharAt(0);
                 a1.deleteCharAt(0);
+                if (flag == 0) flag1=5;
+                else if(flag ==1) flag2=5;
             }
             //判断五张散牌
             else if(a1.length() >=5)
             {
-                out(a1.charAt(0));
-                out(a1.charAt(1));
-                out(a1.charAt(2));
-                out(a1.charAt(3));
-                out(a1.charAt(4));
-                System.out.println();
+                out(a1.charAt(0),flag);
+                out(a1.charAt(1),flag);
+                out(a1.charAt(2),flag);
+                out(a1.charAt(3),flag);
+                out(a1.charAt(4),flag);
                 a1.deleteCharAt(0);
                 a1.deleteCharAt(0);
                 a1.deleteCharAt(0);
                 a1.deleteCharAt(0);
                 a1.deleteCharAt(0);
+                if (flag == 0) flag1=6;
+                else if(flag ==1) flag2=6;
             }
         }
     }
@@ -195,9 +191,47 @@ public class Operation {
         else if(str.contains("10JQKA")) return 9;
         else return 0;
     }
-    private void out(char c)
+
+    //存牌
+    private void out(char c,int flag)
     {
-        if(c=='￥') System.out.print("10");
-        else System.out.print(c);
+        //存后墩牌
+        if(flag == 0)
+        {
+            if (c=='￥') behand.add("10");
+            else behand.add(Character.toString(c));
+        }
+        //存中墩牌
+        else if(flag == 1){
+            if (c=='￥') middle.add("10");
+            else middle.add(Character.toString(c));
+        }
+        //存前墩牌
+        else if(flag == 2){
+            if (c=='￥') front.add("10");
+            else front.add(Character.toString(c));
+        }
+    }
+    public void play()
+    {
+        if (flag1 == flag2){
+            String str1 = behand.toString();
+            String str2 = middle.toString();
+            if(str1.compareTo(str2) < 0) {
+                System.out.println("后墩是："+middle);
+                System.out.println("中墩是："+behand);
+                System.out.println("前墩是："+front);
+            }
+            else {
+                System.out.println("后墩是：" + behand);
+                System.out.println("中墩是：" + middle);
+                System.out.println("前墩是：" + front);
+          }
+        }
+        else {
+            System.out.println("后墩是：" + behand);
+            System.out.println("中墩是：" + middle);
+            System.out.println("前墩是：" + front);
+        }
     }
 }
