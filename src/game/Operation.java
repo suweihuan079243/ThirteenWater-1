@@ -61,11 +61,13 @@ public class Operation {
                 out(a3.charAt(0),flag);
                 out(a3.charAt(0),flag);
             }
+            //一对
             else if(a2.length() != 0){
                 out(a2.charAt(0),flag);
                 out(a2.charAt(0),flag);
                 out(a1.charAt(0),flag);
             }
+            //散牌
             else{
                 out(a1.charAt(0),flag);
                 out(a1.charAt(1),flag);
@@ -104,15 +106,25 @@ public class Operation {
             //判断顺子(问题：只能从单张牌堆里面选顺子)
             else if(a1.length() >= 5 && judge(a1.toString())!=0)
             {
-                if (judge(a1.toString())==1) System.out.println("23456");
-                else if(judge(a1.toString())==2) System.out.println("34567");
-                else if(judge(a1.toString())==3) System.out.println("45678");
-                else if(judge(a1.toString())==4) System.out.println("56789");
-                else if(judge(a1.toString())==5) System.out.println("678910");
-                else if(judge(a1.toString())==6) System.out.println("78910J");
-                else if(judge(a1.toString())==7) System.out.println("8910JQ");
-                else if(judge(a1.toString())==8) System.out.println("910JQK");
-                else if(judge(a1.toString())==9) System.out.println("10JQKA");
+                if (judge(a1.toString())==1 && flag==0) behand.add("23456");
+                else if(judge(a1.toString())==2 && flag==0) behand.add("34567");
+                else if(judge(a1.toString())==3 && flag==0) behand.add("45678");
+                else if(judge(a1.toString())==4 && flag==0) behand.add("56789");
+                else if(judge(a1.toString())==5 && flag==0) behand.add("678910");
+                else if(judge(a1.toString())==6 && flag==0) behand.add("78910J");
+                else if(judge(a1.toString())==7 && flag==0) behand.add("8910JQ");
+                else if(judge(a1.toString())==8 && flag==0) behand.add("910JQK");
+                else if(judge(a1.toString())==9 && flag==0) behand.add("10JQKA");
+
+                else if(judge(a1.toString())==1 && flag==1) middle.add("23456");
+                else if(judge(a1.toString())==2 && flag==1) middle.add("34567");
+                else if(judge(a1.toString())==3 && flag==1) middle.add("45678");
+                else if(judge(a1.toString())==4 && flag==1) middle.add("56789");
+                else if(judge(a1.toString())==5 && flag==1) middle.add("678910");
+                else if(judge(a1.toString())==6 && flag==1) middle.add("78910J");
+                else if(judge(a1.toString())==7 && flag==1) middle.add("8910JQ");
+                else if(judge(a1.toString())==8 && flag==1) middle.add("910JQK");
+                else if(judge(a1.toString())==9 && flag==1) middle.add("10JQKA");
                 a1.deleteCharAt(0);
                 a1.deleteCharAt(0);
                 a1.deleteCharAt(0);
@@ -212,6 +224,7 @@ public class Operation {
             else front.add(Character.toString(c));
         }
     }
+    //出牌
     public void play()
     {
         if (flag1 == flag2){
