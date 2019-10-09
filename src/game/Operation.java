@@ -11,17 +11,39 @@ public class Operation {
     private StringBuffer a2 = new StringBuffer();
     private StringBuffer a3 = new StringBuffer();
     private StringBuffer a4 = new StringBuffer();
+
+    private StringBuffer c1 = new StringBuffer(); //放♠
+    private StringBuffer c2 = new StringBuffer(); //放♦
+    private StringBuffer c3 = new StringBuffer(); //放♣
+    private StringBuffer c4 = new StringBuffer(); //放♥
+
     private ArrayList<String> numList = new ArrayList<>(); //花色去掉后的手牌
     private ArrayList<String> front = new ArrayList<>();//前墩
     private ArrayList<String> middle = new ArrayList<>();//中墩
     private ArrayList<String> behand = new ArrayList<>();//后墩
+
+    private ArrayList<String> frontColor = new ArrayList<>();//带花色的前墩
+    private ArrayList<String> middleColor = new ArrayList<>();//带花色中墩
+    private ArrayList<String> behandColor  = new ArrayList<>();//带花色的后墩
     private int flag1 = 0; //后墩牌型
     private int flag2 = 0; //中墩牌型
 
-    //把花色去掉
+    //把相同花色的牌放一起
+    public void countColor(ArrayList<String> handPoker)
+    {
+        for(String s : handPoker)
+        {
+            char c = s.toCharArray()[0];
+            if(c == '♠')  c1.append(s.substring(1));
+            else if (c == '♦') c2.append(s.substring(1));
+            else if (c == '♣') c3.append(s.substring(1));
+            else if (c == '♥') c4.append(s.substring(1));
+        }
+    }
+    //把花色去掉，统计牌型
     public void countPoker(ArrayList<String> handPoker)
     {
-
+        countColor(handPoker);
         for(String str : handPoker){
             str = str.substring(1);
             numList.add(str);
@@ -77,8 +99,12 @@ public class Operation {
         if(size == 5)
         {
             //判断同花顺
+            if (a1.length() >= 5 && judge(a1.toString())!=0 )
+            {
+
+            }
             //判断炸弹
-            if(a4.length() != 0 && a1.length() != 0) {
+            else if(a4.length() != 0 && a1.length() != 0) {
                 out(a4.charAt(0)==1?10:a4.charAt(0),flag);
                 out(a4.charAt(0)==1?10:a4.charAt(0),flag);
                 out(a4.charAt(0)==1?10:a4.charAt(0),flag);
@@ -103,6 +129,20 @@ public class Operation {
                 else if(flag ==1) flag2=2;
             }
             //判断同花
+            else if(a1.length() >= 5 && c1.toString().contains(a1.toString())){
+                out(a1.charAt(0),flag);
+                out(a1.charAt(1),flag);
+                out(a1.charAt(2),flag);
+                out(a1.charAt(3),flag);
+                out(a1.charAt(4),flag);
+                a1.deleteCharAt(0);
+                a1.deleteCharAt(0);
+                a1.deleteCharAt(0);
+                a1.deleteCharAt(0);
+                a1.deleteCharAt(0);
+                if (flag == 0) flag1=7;
+                else if(flag ==1) flag2=7;
+            }
             //判断顺子(问题：只能从单张牌堆里面选顺子)
             else if(a1.length() >= 5 && judge(a1.toString())!=0)
             {
@@ -204,47 +244,101 @@ public class Operation {
         else return 0;
     }
 
+    //添加花色
+    public void addColor(ArrayList<String> handPoker)
+    {
+        for (String s : behand)
+        {
+            for (String str : handPoker)
+            {
+                if(s.equals(str.substring(1)))
+                {
+                    behandColor.add(str);
+                    handPoker.remove(str);
+                    break;
+                }
+            }
+        }
+        for (String s : middle)
+        {
+            for (String str : handPoker)
+            {
+                if(s.equals(str.substring(1)))
+                {
+                    middleColor.add(str);
+                    handPoker.remove(str);
+                    break;
+                }
+            }
+        }
+        for (String s : front)
+        {
+            for (String str : handPoker)
+            {
+                if(s.equals(str.substring(1)))
+                {
+                    frontColor.add(str);
+                    handPoker.remove(str);
+                    break;
+                }
+            }
+        }
+    }
+
     //存牌
     private void out(char c,int flag)
     {
         //存后墩牌
         if(flag == 0)
         {
-            if (c=='￥') behand.add("10");
-            else behand.add(Character.toString(c));
+            behand.add(Character.toString(c));
         }
         //存中墩牌
         else if(flag == 1){
-            if (c=='￥') middle.add("10");
-            else middle.add(Character.toString(c));
+             middle.add(Character.toString(c));
         }
         //存前墩牌
         else if(flag == 2){
-            if (c=='￥') front.add("10");
-            else front.add(Character.toString(c));
+             front.add(Character.toString(c));
         }
+    }
+    //改变十的表示形式
+    private ArrayList<String> changeTen(ArrayList<String> al)
+    {
+        ArrayList<String> temp = new ArrayList<String>();
+        for (String s : al){
+            temp.add(s);
+        }
+        for (int i = 0 ; i< temp.size();i++){
+            if (temp.get(i).equals("♥￥")) temp.set(i,"♥10");
+            else if (temp.get(i).equals("♠￥")) temp.set(i,"♠10");
+            else if (temp.get(i).equals("♦￥")) temp.set(i,"♦10");
+            else if (temp.get(i).equals("♣￥")) temp.set(i,"♣10");
+        }
+        return temp;
     }
     //出牌
     public void play()
     {
+
         if (flag1 == flag2){
             String str1 = behand.toString();
             String str2 = middle.toString();
             if(str1.compareTo(str2) < 0) {
-                System.out.println("后墩是："+middle);
-                System.out.println("中墩是："+behand);
-                System.out.println("前墩是："+front);
+                System.out.println("后墩是："+changeTen(middleColor));
+                System.out.println("中墩是："+changeTen(behandColor));
+                System.out.println("前墩是："+changeTen(frontColor));
             }
             else {
-                System.out.println("后墩是：" + behand);
-                System.out.println("中墩是：" + middle);
-                System.out.println("前墩是：" + front);
+                System.out.println("后墩是：" + changeTen(behandColor));
+                System.out.println("中墩是：" + changeTen(middleColor));
+                System.out.println("前墩是：" + changeTen(frontColor));
           }
         }
         else {
-            System.out.println("后墩是：" + behand);
-            System.out.println("中墩是：" + middle);
-            System.out.println("前墩是：" + front);
+            System.out.println("后墩是：" + changeTen(behandColor));
+            System.out.println("中墩是：" + changeTen(middleColor));
+            System.out.println("前墩是：" + changeTen(frontColor));
         }
     }
 }

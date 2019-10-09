@@ -36,6 +36,7 @@ public class Main {
         op1.judgeCardType(5,0);
         op1.judgeCardType(5,1);
         op1.judgeCardType(3,2);
+        op1.addColor(player1.getHandPoker());
         op1.play();
 
         Operation op2 = new Operation();
@@ -44,6 +45,7 @@ public class Main {
         op2.judgeCardType(5,0);
         op2.judgeCardType(5,1);
         op2.judgeCardType(3,2);
+        op2.addColor(player2.getHandPoker());
         op2.play();
 
         Operation op3 = new Operation();
@@ -52,6 +54,7 @@ public class Main {
         op3.judgeCardType(5,0);
         op3.judgeCardType(5,1);
         op3.judgeCardType(3,2);
+        op3.addColor(player3.getHandPoker());
         op3.play();
 
         Operation op4 = new Operation();
@@ -60,6 +63,7 @@ public class Main {
         op4.judgeCardType(5,0);
         op4.judgeCardType(5,1);
         op4.judgeCardType(3,2);
+        op4.addColor(player4.getHandPoker());
         op4.play();
     }
 }
