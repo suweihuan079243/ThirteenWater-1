@@ -99,8 +99,69 @@ public class Operation {
         if(size == 5)
         {
             //判断同花顺
-            if (a1.length() >= 5 && judge(a1.toString())!=0 )
+            if (a1.length() >= 5 && judge(a1.toString())!=0 && judgeColor(c1.toString())!=0 )
             {
+                if (judge(a1.toString())==1 && flag==0) {
+                    behand.add("2");behand.add("3");behand.add("4");behand.add("5");behand.add("6");
+                }
+                else if(judge(a1.toString())==2 && flag==0) {
+                    behand.add("3");behand.add("4");behand.add("5");behand.add("6");behand.add("7");
+                }
+                else if(judge(a1.toString())==3 && flag==0) {
+                    behand.add("4");behand.add("5");behand.add("6");behand.add("7");behand.add("8");
+                }
+                else if(judge(a1.toString())==4 && flag==0) {
+                    behand.add("5");behand.add("6");behand.add("7");behand.add("8");behand.add("9");
+                }
+                else if(judge(a1.toString())==5 && flag==0) {
+                    behand.add("6");behand.add("7");behand.add("8");behand.add("9");behand.add("￥");
+                }
+                else if(judge(a1.toString())==6 && flag==0) {
+                    behand.add("7");behand.add("8");behand.add("9");behand.add("￥");behand.add("J");
+                }
+                else if(judge(a1.toString())==7 && flag==0) {
+                    behand.add("8");behand.add("9");behand.add("￥");behand.add("J");behand.add("Q");
+                }
+                else if(judge(a1.toString())==8 && flag==0) {
+                    behand.add("9");behand.add("￥");behand.add("J");behand.add("Q");behand.add("K");
+                }
+                else if(judge(a1.toString())==9 && flag==0) {
+                    behand.add("￥");behand.add("J");behand.add("Q");behand.add("K");behand.add("A");
+                }
+
+                else if(judge(a1.toString())==1 && flag==1) {
+                    middle.add("2");middle.add("3");middle.add("4");middle.add("5");middle.add("6");
+                }
+                else if(judge(a1.toString())==2 && flag==1) {
+                    middle.add("3");middle.add("4");middle.add("5");middle.add("6");middle.add("7");
+                }
+                else if(judge(a1.toString())==3 && flag==1) {
+                    middle.add("4");middle.add("5");middle.add("6");middle.add("7");middle.add("8");
+                }
+                else if(judge(a1.toString())==4 && flag==1) {
+                    middle.add("5");middle.add("6");middle.add("7");middle.add("8");middle.add("9");
+                }
+                else if(judge(a1.toString())==5 && flag==1) {
+                    middle.add("6");middle.add("7");middle.add("8");middle.add("9");middle.add("￥");
+                }
+                else if(judge(a1.toString())==6 && flag==1) {
+                    middle.add("7");middle.add("8");middle.add("9");middle.add("￥");middle.add("J");
+                }
+                else if(judge(a1.toString())==7 && flag==1) {
+                    middle.add("8");middle.add("9");middle.add("￥");middle.add("J");middle.add("Q");
+                }
+                else if(judge(a1.toString())==8 && flag==1) {
+                    middle.add("9");middle.add("￥");middle.add("J");middle.add("Q");middle.add("K");
+                }
+                else if(judge(a1.toString())==9 && flag==1) {
+                    middle.add("￥");middle.add("J");middle.add("Q");middle.add("K");middle.add("A");
+                }
+                a1.deleteCharAt(0);
+                a1.deleteCharAt(0);
+                a1.deleteCharAt(0);
+                a1.deleteCharAt(0);
+                a1.deleteCharAt(0);
+
 
             }
             //判断炸弹
@@ -146,25 +207,61 @@ public class Operation {
             //判断顺子(问题：只能从单张牌堆里面选顺子)
             else if(a1.length() >= 5 && judge(a1.toString())!=0)
             {
-                if (judge(a1.toString())==1 && flag==0) behand.add("23456");
-                else if(judge(a1.toString())==2 && flag==0) behand.add("34567");
-                else if(judge(a1.toString())==3 && flag==0) behand.add("45678");
-                else if(judge(a1.toString())==4 && flag==0) behand.add("56789");
-                else if(judge(a1.toString())==5 && flag==0) behand.add("678910");
-                else if(judge(a1.toString())==6 && flag==0) behand.add("78910J");
-                else if(judge(a1.toString())==7 && flag==0) behand.add("8910JQ");
-                else if(judge(a1.toString())==8 && flag==0) behand.add("910JQK");
-                else if(judge(a1.toString())==9 && flag==0) behand.add("10JQKA");
+                if (judge(a1.toString())==1 && flag==0) {
+                    behand.add("2");behand.add("3");behand.add("4");behand.add("5");behand.add("6");
+                }
+                else if(judge(a1.toString())==2 && flag==0) {
+                    behand.add("3");behand.add("4");behand.add("5");behand.add("6");behand.add("7");
+                }
+                else if(judge(a1.toString())==3 && flag==0) {
+                    behand.add("4");behand.add("5");behand.add("6");behand.add("7");behand.add("8");
+                }
+                else if(judge(a1.toString())==4 && flag==0) {
+                    behand.add("5");behand.add("6");behand.add("7");behand.add("8");behand.add("9");
+                }
+                else if(judge(a1.toString())==5 && flag==0) {
+                    behand.add("6");behand.add("7");behand.add("8");behand.add("9");behand.add("￥");
+                }
+                else if(judge(a1.toString())==6 && flag==0) {
+                    behand.add("7");behand.add("8");behand.add("9");behand.add("￥");behand.add("J");
+                }
+                else if(judge(a1.toString())==7 && flag==0) {
+                    behand.add("8");behand.add("9");behand.add("￥");behand.add("J");behand.add("Q");
+                }
+                else if(judge(a1.toString())==8 && flag==0) {
+                    behand.add("9");behand.add("￥");behand.add("J");behand.add("Q");behand.add("K");
+                }
+                else if(judge(a1.toString())==9 && flag==0) {
+                    behand.add("￥");behand.add("J");behand.add("Q");behand.add("K");behand.add("A");
+                }
 
-                else if(judge(a1.toString())==1 && flag==1) middle.add("23456");
-                else if(judge(a1.toString())==2 && flag==1) middle.add("34567");
-                else if(judge(a1.toString())==3 && flag==1) middle.add("45678");
-                else if(judge(a1.toString())==4 && flag==1) middle.add("56789");
-                else if(judge(a1.toString())==5 && flag==1) middle.add("678910");
-                else if(judge(a1.toString())==6 && flag==1) middle.add("78910J");
-                else if(judge(a1.toString())==7 && flag==1) middle.add("8910JQ");
-                else if(judge(a1.toString())==8 && flag==1) middle.add("910JQK");
-                else if(judge(a1.toString())==9 && flag==1) middle.add("10JQKA");
+                else if(judge(a1.toString())==1 && flag==1) {
+                    middle.add("2");middle.add("3");middle.add("4");middle.add("5");middle.add("6");
+                }
+                else if(judge(a1.toString())==2 && flag==1) {
+                    middle.add("3");middle.add("4");middle.add("5");middle.add("6");middle.add("7");
+                }
+                else if(judge(a1.toString())==3 && flag==1) {
+                    middle.add("4");middle.add("5");middle.add("6");middle.add("7");middle.add("8");
+                }
+                else if(judge(a1.toString())==4 && flag==1) {
+                    middle.add("5");middle.add("6");middle.add("7");middle.add("8");middle.add("9");
+                }
+                else if(judge(a1.toString())==5 && flag==1) {
+                    middle.add("6");middle.add("7");middle.add("8");middle.add("9");middle.add("￥");
+                }
+                else if(judge(a1.toString())==6 && flag==1) {
+                    middle.add("7");middle.add("8");middle.add("9");middle.add("￥");middle.add("J");
+                }
+                else if(judge(a1.toString())==7 && flag==1) {
+                    middle.add("8");middle.add("9");middle.add("￥");middle.add("J");middle.add("Q");
+                }
+                else if(judge(a1.toString())==8 && flag==1) {
+                    middle.add("9");middle.add("￥");middle.add("J");middle.add("Q");middle.add("K");
+                }
+                else if(judge(a1.toString())==9 && flag==1) {
+                    middle.add("￥");middle.add("J");middle.add("Q");middle.add("K");middle.add("A");
+                }
                 a1.deleteCharAt(0);
                 a1.deleteCharAt(0);
                 a1.deleteCharAt(0);
@@ -231,6 +328,20 @@ public class Operation {
     }
     //判断顺子
     private int judge(String str)
+    {
+        if(str.contains("23456")) return 1;
+        else if(str.contains("34567")) return 2;
+        else if(str.contains("45678")) return 3;
+        else if(str.contains("56789")) return 4;
+        else if(str.contains("678910")) return 5;
+        else if(str.contains("78910J")) return 6;
+        else if(str.contains("8910JQ")) return 7;
+        else if(str.contains("910JQK")) return 8;
+        else if(str.contains("10JQKA")) return 9;
+        else return 0;
+    }
+    //判断同花顺
+    private int judgeColor(String str)
     {
         if(str.contains("23456")) return 1;
         else if(str.contains("34567")) return 2;
