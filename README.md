@@ -1,4 +1,6 @@
-# ThirteenWater
+# ThirteenWater   
+
+![](https://img.shields.io/badge/build-passing-green.svg)
 
 ![](https://img.shields.io/badge/language-JAVA-blue.svg)![](https://img.shields.io/badge/platform-windows-lightgrey.svg)
 
