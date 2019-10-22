@@ -1,7 +1,7 @@
 # ThirteenWater
 福建十三水的游戏，从服务器获取牌面，得出最优解出牌。
 
-![](https://img.shields.io/apm/l/vim-mode.svg) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d8958cb5aedf4575b9cc25461f2c7e68)](https://www.codacy.com/manual/pullself/Thirteen_Warter?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=pullself/Thirteen_Warter&amp;utm_campaign=Badge_Grade)![](https://travis-ci.org/pullself/Thirteen_Water.svg?branch=master)
+![](https://img.shields.io/badge/language-java-yellow.svg) ![](https://img.shields.io/apm/l/vim-mode.svg) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d8958cb5aedf4575b9cc25461f2c7e68)](https://www.codacy.com/manual/pullself/Thirteen_Warter?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=pullself/Thirteen_Warter&amp;utm_campaign=Badge_Grade)![](https://travis-ci.org/pullself/Thirteen_Water.svg?branch=master)
 
     
 ## 运行环境
